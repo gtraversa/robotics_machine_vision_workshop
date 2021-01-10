@@ -18,9 +18,11 @@ worldPoints = generateCheckerboardPoints(boardSize, squareSize);
 for i = 1:length(worldPoints)
     worldPointsMapped(i,:) = pointsToWorld(cameraParams,R,t,imagePoints(i,:));
 end
- figure, plot (worldPoints(:,1),worldPoints(:,2),'x')
- hold on, plot (worldPointsMapped(:,1),worldPointsMapped(:,2),'o')
+% figure, plot (worldPoints(:,1),worldPoints(:,2),'x')
+% hold on, plot (worldPointsMapped(:,1),worldPointsMapped(:,2),'x')
 
+%Used for reference to check results from inverse trajectory calculated in task 4
+jointAngles = [116.56505117707799,105.72862676179274,122.8686789333675,78.52170062510712,70.85825558332465,86.17541788863473,74.49151414491105;36.44285901503808,40.63240865931577,45.31479080681755,50.986470514995766,50.020473371089764,54.93348224040216,57.41073796434694;-83.10789742065361,-92.26102447073212,-102.9704123481433,-116.39948874563208,-113.96128908422877,-126.98839859047743,-134.68092580302638];
 robotPoints = [-100,-56.1,-100.8,31.21,53.21,8.831,30.44; 200,199.2,156,153.7,153.3,132.1,109.7; -20,-19.92,-20.08,-19.85,-19.81,-19.93,-19.93];
 Xrbt = robotPoints(1,:);
 Yrbt = robotPoints(2,:);
@@ -53,17 +55,7 @@ rho13 = rho4(1);
 rho23 = rho4(2);
 rho33 = rho4(3);
 
- T_RobotWorld = [rho11, rho12, rho13, tx; rho21, rho22, rho23, ty; rho31, rho32, rho33, tz; 0, 0, 0, 1]
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-imageCylinder = [313.8439, 218.8197];
-worldCylinder = pointsToWorld(cameraParams,R,t,imageCylinder);
-worldCylinder = [worldCylinder 0]; % add Z-axis value
-robotCylinder = T_RobotWorld * [worldCylinder 1]'
-
-imageCube = [64.0168, 304.6212];
-worldCube =  pointsToWorld(cameraParams,R,t,imageCube);
-worldCube = [worldCube 0]; % add Z-axis value
-robotCube = T_RobotWorld * [worldCube 1]'
+ T_RobotWorld = [rho11, rho12, rho13, tx; rho21, rho22, rho23, ty; rho31, rho32, rho33, tz; 0, 0, 0, 1];
+ 
+ Rrob = T_RobotWorld (1:3,1:3);
+ trob = T_RobotWorld (1:3,4);
