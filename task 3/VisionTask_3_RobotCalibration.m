@@ -18,9 +18,8 @@ worldPoints = generateCheckerboardPoints(boardSize, squareSize);
 for i = 1:length(worldPoints)
     worldPointsMapped(i,:) = pointsToWorld(cameraParams,R,t,imagePoints(i,:));
 end
-
-% figure, plot (worldPoints(:,1),worldPoints(:,2),'x')
-% hold on, plot (worldPointsMapped(:,1),worldPointsMapped(:,2),'x')
+ figure, plot (worldPoints(:,1),worldPoints(:,2),'x')
+ hold on, plot (worldPointsMapped(:,1),worldPointsMapped(:,2),'o')
 
 robotPoints = [-100,-56.1,-100.8,31.21,53.21,8.831,30.44; 200,199.2,156,153.7,153.3,132.1,109.7; -20,-19.92,-20.08,-19.85,-19.81,-19.93,-19.93];
 Xrbt = robotPoints(1,:);
