@@ -33,6 +33,7 @@ figure;
 showExtrinsics(cameraParams, 'PatternCentric');
 
 % Calibrate the camera again with code in task 1
+% Dimensions of matrices changed to match input data
 
 numberImages = numImages;
 

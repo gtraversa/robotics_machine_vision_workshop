@@ -68,5 +68,3 @@ imageCube = [64.0168, 304.6212];
 worldCube =  pointsToWorld(cameraParams,R,t,imageCube);
 worldCube = [worldCube 0]; % add Z-axis value
 robotCube = T_RobotWorld * [worldCube 1]'
-
-

@@ -7,6 +7,7 @@ camList = webcamlist;
 cam = webcam(1);
 preview(cam);
 
+%Take 6 images ans save them
 for idx = 1:numImages
     
     pause(10.0);
