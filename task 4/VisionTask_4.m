@@ -287,7 +287,7 @@ PerimeterMatlab = sum(sum(BW2)) % Using Matlab's toolbox, just to confirm
 
 
 %%%%%%%%%%%%%%
-Circularity %
+%Circularity %
 %%%%%%%%%%%%%%
 
 Circularity = 4*pi*Moment00/Perimeter^2

@@ -194,9 +194,3 @@ for N = 1:numberImages
 end
 
 disp(R) %displays extrinsic parameters to compare to Zhang's results
-    
-
-        
-        
-
-
